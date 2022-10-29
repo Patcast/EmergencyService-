@@ -12,12 +12,11 @@ private:
     QVector<component*> children;
 
 public:
-    MonitoredSpace(double Id, std::string description );
+    MonitoredSpace(int Id, std::string description );
     void addNewComponent(component *c);
     void remove(component *c);
     QVector<component*> getChildren();
-    double getId();
-    std::string getDescription();
+    void activateSensor();
 //    component* getComponentById(double id);
 };
 
