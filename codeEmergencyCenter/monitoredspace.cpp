@@ -1,5 +1,6 @@
 #include "monitoredspace.h"
 #include <iostream>
+#include <QObject>
 
 
 MonitoredSpace::MonitoredSpace(int Id,std::string des)
@@ -13,12 +14,36 @@ void MonitoredSpace:: addNewComponent(component *c){
     children.push_back(c);
 
 }
+
 void MonitoredSpace:: remove(component *c){
     int index = children.indexOf(c);
     children.remove(index);
 }
 QVector<component*> MonitoredSpace:: getChildren(){
     return children;
+}
+
+int MonitoredSpace::activateSensor(){
+    for(int i = 0; i<children.size();i++){
+        children[i]->activateSensor();
+    }
+    return 2;
+}
+
+int MonitoredSpace::deactivateSensor(){
+    for(int i = 0; i<children.size();i++){
+        children[i]->deactivateSensor();
+    }
+    return 2;
+}
+
+
+
+int MonitoredSpace:: testSensor(){
+    for(int i = 0; i<children.size();i++){
+        children[i]->testSensor();
+        }
+    return 2;
 }
 
 /*
