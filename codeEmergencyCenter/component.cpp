@@ -7,7 +7,7 @@
 component::component(int Id,std::string des)
     :Id{Id}, description{des}
 {
-    std::cout << "component constructor 1 called with parameters " << Id << des << std::endl;
+    //std::cout << "component constructor 1 called with parameters " << Id << des << std::endl;
 }
 int component:: getId(){
 
@@ -24,8 +24,16 @@ void component:: addNewComponent(component *c){
 void component:: remove(component *c){
 }
 
-QVector<component*> component:: getChildren(){
+int component::activateSensor(){
+    return 0;
 }
-void component::activateSensor(){
+
+int component::deactivateSensor(){
+    return 0;
 }
+
+int component::testSensor(){
+    return 0;
+}
+
 
