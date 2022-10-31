@@ -10,29 +10,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-<<<<<<< codeEmergencyCenter/EmergencyCenter.pro
-    emergencycenter.cpp \
-    sensor.cpp\
     actuator.cpp \
     alarm.cpp \
     callauthority.cpp \
     component.cpp \
+    controlcenter.cpp \
     emergencycenter.cpp \
     emergencyservices.cpp \
     main.cpp \
-    monitoredspace.cpp
+    monitoredspace.cpp \
+    observer.cpp \
+    sensor.cpp
 
 HEADERS += \
-    EmergencyCenter_global.h \
     actuator.h \
     alarm.h \
-    sensor.h\
     callauthority.h \
     component.h \
+    controlcenter.h \
     emergencycenter.h \
+    EmergencyCenter_global.h \
     emergencyservices.h \
-    monitoredspace.h
->>>>>>> codeEmergencyCenter/EmergencyCenter.pro
+    monitoredspace.h \
+    observer.h \
+    sensor.h
 
 # Default rules for deployment.
 unix {
