@@ -1,7 +1,7 @@
 #ifndef ACTUATOR_H
 #define ACTUATOR_H
 
-#include <emergencyservices.h>
+#include <emergencyservice.h>
 #include <string>
 
 class Actuator : public EmergencyServices

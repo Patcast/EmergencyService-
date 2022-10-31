@@ -1,7 +1,7 @@
 #ifndef CALLAUTHORITY_H
 #define CALLAUTHORITY_H
 
-#include <emergencyservices.h>
+#include <emergencyservice.h>
 #include <string>
 
 class CallAuthority : public EmergencyServices

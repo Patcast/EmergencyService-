@@ -1,7 +1,7 @@
 #ifndef ALARM_H
 #define ALARM_H
 
-#include <emergencyservices.h>
+#include <emergencyservice.h>
 #include <string>
 
 class Alarm : public EmergencyServices
