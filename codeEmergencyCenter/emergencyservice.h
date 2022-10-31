@@ -12,7 +12,7 @@ protected:
     void setMessage(std::string message);
 
 public:
-    virtual void execute() const = 0;
+    void execute();
 
 };
 
