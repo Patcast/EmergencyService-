@@ -4,12 +4,12 @@
 #include <emergencyservice.h>
 #include <string>
 
-class Actuator : public EmergencyServices
+class Actuator : public EmergencyService
 {
 public:
     Actuator(std::string name);
 
-    using EmergencyServices::execute;
+    using EmergencyService::execute;
     void execute();
 };
 

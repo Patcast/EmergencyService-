@@ -4,12 +4,12 @@
 #include <emergencyservice.h>
 #include <string>
 
-class CallAuthority : public EmergencyServices
+class CallAuthority : public EmergencyService
 {
 public:
     CallAuthority(std::string name, std::string contact);
 
-    using EmergencyServices::execute;
+    using EmergencyService::execute;
     void execute();
 };
 
