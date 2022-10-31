@@ -4,12 +4,12 @@
 #include <emergencyservice.h>
 #include <string>
 
-class Alarm : public EmergencyServices
+class Alarm : public EmergencyService
 {
 public:
     Alarm(std::string name);
 
-    using EmergencyServices::execute;
+    using EmergencyService::execute;
     void execute();
 };
 

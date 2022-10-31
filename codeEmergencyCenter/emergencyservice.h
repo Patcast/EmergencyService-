@@ -6,13 +6,13 @@
 class EmergencyService
 {
 protected:
-    EmergencyService(std::string n, std::string o);
-    int id;
+    EmergencyService(std::string name, std::string message = "Unspecified message");
     std::string name;
-    std::string output;
+    std::string message;
+    void setMessage(std::string message);
 
 public:
-    virtual void execute() const = 0;
+    void execute();
 
 };
 
