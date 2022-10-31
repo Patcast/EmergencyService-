@@ -18,8 +18,10 @@ SOURCES += \
     controlcenter.cpp \
     emergencycenter.cpp \
     emergencyservice.cpp \
+    gas.cpp \
     main.cpp \
     monitoredspace.cpp \
+    motion.cpp \
     observer.cpp \
     sensor.cpp
 
@@ -32,7 +34,9 @@ HEADERS += \
     emergencycenter.h \
     EmergencyCenter_global.h \
     emergencyservice.h \
+    gas.h \
     monitoredspace.h \
+    motion.h \
     observer.h \
     sensor.h
 
