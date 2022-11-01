@@ -2,38 +2,25 @@
 #include <string>
 #include <iostream>
 
-
-
-component::component(int Id,std::string des)
-    :Id{Id}, description{des}
+Component::Component(int Id, std::string_view des) : id{Id}, description{des}
 {
-    //std::cout << "component constructor 1 called with parameters " << Id << des << std::endl;
+    std::cout << "Calling Component constructor" << std::endl;
 }
-int component:: getId(){
+
+int Component:: getId(){
 
     return Id;
 }
 
-std::string component:: getDescription(){
+std::string_view Component:: getDescription(){
     return description;
 }
 
-void component:: addNewComponent(component *c){
+void Component::printInfo() const
+{
+    std::cout
+        << "------------\ndescription:\t"
+        << getDescription()
+        << "\nid:\t\t" << getId()
+        << std::endl;
 }
-
-void component:: remove(component *c){
-}
-
-int component::activateSensor(){
-    return 0;
-}
-
-int component::deactivateSensor(){
-    return 0;
-}
-
-int component::testSensor(){
-    return 0;
-}
-
-

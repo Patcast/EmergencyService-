@@ -5,21 +5,25 @@
 
 
 
-class component
+class Component
 {
 private:
-    int Id;
-    std::string description;
+    int id;
+    std::string_view description;
 
 public:
-    component(int Id, std::string description);
+    Component(int id, std::string_view description);
     int getId();
-    std::string getDescription();
-    void addNewComponent(component *c);
-    void remove(component *c);
-    virtual int activateSensor();
-    virtual int deactivateSensor();
-    virtual int testSensor();
+    std::string_view getDescription();
+    void printInfo() const;
+
+    // Virtuals
+    virtual int addNewComponent(std::shared_ptr<Component> newChild) = 0;
+    virtual int removeComponent(std::shared_ptr<Component> unWantedChild) = 0;
+    virtual int testSensor() = 0;
+    virtual int activateSensor() = 0;
+    virtual int deActivateSensor() = 0;
+    virtual std::shared_ptr<Component> const getChildren() const = 0;
 };
 
 #endif // COMPONENT_H

@@ -3,47 +3,69 @@
 #include <QObject>
 
 
-MonitoredSpace::MonitoredSpace(int Id,std::string des)
-    :component{Id,des}
+MonitoredSpace::MonitoredSpace(int Id,std::string_view des)
+    :Component{Id,des}
  {
-    std::cout << "MonitoredSpace constructor 1 called with parameters " << Id << ", " << des <<  std::endl;
+     std::cout << "Calling MonitorSpace constructor" << std::endl;
  }
 
+ int MonitoredSpace::addNewComponent(std::shared_ptr<Component> newChild)
+ {
+     children.push_back(std::move(newChild));
+     return 0;
+ }
 
-void MonitoredSpace:: addNewComponent(component *c){
-    children.push_back(c);
-
+int MonitoredSpace::removeComponent(std::shared_ptr<Component> unWantedChild) {
+    for (unsigned int index = 1; index < children.size(); index++) {
+        if (children[index] == unWantedChild)
+        {
+            children.erase(children.begin() + index);
+            return 0;
+        }
+    }
+    std::cout << "Coud not find Component pointer on Children" << std::endl;
+    return 1;
 }
 
-void MonitoredSpace:: remove(component *c){
-    int index = children.indexOf(c);
-    children.remove(index);
-}
-QVector<component*> MonitoredSpace:: getChildren(){
-    return children;
+const std::shared_ptr<Component> MonitoredSpace::getChildren() const
+{
+    std::vector<std::shared_ptr<Component>> sensors;
+
+    return nullptr;
 }
 
 int MonitoredSpace::activateSensor(){
-    for(int i = 0; i<children.size();i++){
-        children[i]->activateSensor();
-    }
-    return 2;
+    for (auto &c : children)
+        c->activateSensor();
+    return 0;
 }
 
 int MonitoredSpace::deactivateSensor(){
-    for(int i = 0; i<children.size();i++){
-        children[i]->deactivateSensor();
-    }
-    return 2;
+    for (auto &c : children)
+        c->deActivateSensor();
+    return 0;
 }
 
-
+void MonitoredSpace::printInfo() const
+{
+    std::cout << "\n\n---Space information-----" << std::endl;
+    Component::printInfo();
+    std::cout << "\n---Children information-----" << std::endl;
+    for (auto &c : children)
+    {
+        c->printInfo();
+    }
+}
 
 int MonitoredSpace:: testSensor(){
-    for(int i = 0; i<children.size();i++){
-        children[i]->testSensor();
-        }
-    return 2;
+    for (auto &c : children)
+        c->testSensor();
+    return 0;
+}
+
+int MonitoredSpace::getSizeOfChildren()
+{
+    return children.size();
 }
 
 /*

@@ -1,26 +1,26 @@
 #ifndef MONITOREDSPACE_H
 #define MONITOREDSPACE_H
 #include "component.h"
-#include "sensor.h"
-#include <QVector>
 
-class MonitoredSpace: public component
+class MonitoredSpace: public Component
 {
 //using component::component;
 private:
 //    double Id;
 //    std::string description;
-    QVector<component*> children;
+    std::vector<std::shared_ptr<Component>> children;
 
 public:
-    MonitoredSpace(int Id, std::string description);
-    void addNewComponent(component *c);
-    void remove(component *c);
-    QVector<component*> getChildren();
-    int activateSensor();
+    MonitoredSpace(int id, std::string_view description);
+    int getSizeOfChildren();
+    int activateSensor() override;
     int deactivateSensor();
-    int testSensor();
-//    component* getComponentById(double id);
+    int testSensor() override;
+    int addNewComponent(std::shared_ptr<Component> newChild) override;
+    int removeComponent(std::shared_ptr<Component> unWantedChild) override;
+    void printInfo() const;
+    std::shared_ptr<Component> const getChildren() const override;
+    //    component* getComponentById(double id);
 };
 
 #endif // MONITOREDSPACE_H
