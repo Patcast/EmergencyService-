@@ -25,6 +25,9 @@ private:
     bool isActive{false};
     std::string_view vendor;
     std::vector<std::unique_ptr<EmergencyService>> services;
+    Sensor & operator++(); //prefix
+    Sensor & operator--(); //prefix
+    Sensor operator<<(int); //postfix
 };
 
 #endif // SENSOR_H
