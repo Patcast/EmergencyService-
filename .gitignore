@@ -14,9 +14,8 @@ EmergencyCenter.pro
 *.Debug
 *.Release
 
-build-testEmergency-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/
+build*/
 
-build-EmergencyCenter-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/
 *.pdf
 *.odt
 *.png
