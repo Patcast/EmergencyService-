@@ -1,46 +1,52 @@
 #include <iostream>
 #include <typeinfo>
+#include <algorithm>
 #include "sensor.h"
 #include "monitoredspace.h"
-#include "emergencyservice.h"
 
 int generateId()
 {
     static int idValue{0}; // static duration via static keyword.  This initializer is only executed once.
     ++idValue;
-    std::cout<<"generatig id: "<<idValue<<std::endl;
     return idValue;
 }
+bool compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getId()<c2->getId();}
+bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getDescription()<c2->getDescription();}
+
 int main()
 {
     auto s1 = std::make_shared<Sensor>(generateId(),"Heat Sensor","Lego Land");
-    auto alarm = std::make_unique<EmergencyService>("Alarm","ON");
-    auto lights = std::make_unique<EmergencyService>("Lights","ON");
-    s1->addNewService(std::move(alarm));
-    s1->addNewService(std::move(lights));
-    s1->activateSensor();
-    s1->testSensor();
-    auto s2 = std::make_shared<Sensor>(generateId(),"Humidity Sensor","Lego Land");
+    auto s2 = std::make_shared<Sensor>(generateId(),"2Humidity Sensor","Lego Land");
+    auto s3 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
+    auto s4 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
+    auto s5 = std::make_shared<Sensor>(generateId(),"Light Sensor","Lego Land");
     auto m1 = std::make_shared<MonitoredSpace>(generateId(),"Class room");
+    auto m2 = std::make_shared<MonitoredSpace>(generateId(),"Building");
+    auto m3 = std::make_shared<MonitoredSpace>(generateId(),"Street");
 
-    //std::cout<<typeid((s1)).name()<<std::endl;
-    //auto m1 = std::make_shared<MonitoredSpace>(generateId(),"Class room");
-    //m1->addNewComponent(s1);
-    //std::cout<<typeid((s2)).name()<<std::endl;
-    //std::cout<<typeid((m1)).name()<<std::endl;
+    m1->addNewComponent(s1);
+    m2->addNewComponent(m1);
+    m2->addNewComponent(s4);
+    m2->addNewComponent(s5);
+    m3->addNewComponent(m2);
+    m1->addNewComponent(s2);
+    m2->addNewComponent(s3);
+
+    std::vector<std::shared_ptr<Component>> sensors;
+    m2->getChildren(sensors);
+    std::sort (sensors.begin(), sensors.end(), compareVendors);
+
+    std::cout<<"\n\n1 --------"<<std::endl;
+    for(auto &c:sensors)
+       c->printInfo();
+    std::cout<<"\n\n -------- "<<sensors.size()<<" -------"<<std::endl;
+
+//    std::cout<<"\n\n2 --------"<<std::endl;
+//    m2->printInfo();
+//    std::cout<<"\n\n3 --------"<<std::endl;
+//    m1->printInfo();
 
 
-    std::cout<<"is s1==s2? " << ((typeid(s1)==typeid(s2))==0?"False":"True")<<std::endl;
-    std::cout<<"is s1==m1? " << ((typeid(s1)==typeid(m1))==0?"False":"True")<<std::endl;
-
-//    m1->addNewComponent(s2);
-//    MonitoredSpace m2 {generateId(),"Building"};
-//    m2.addNewComponent(m1);
-//    auto s3 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Entrance");
-//    m2.addNewComponent(s3);
-//    m1->activateSensor();
-//    m2.printInfo();
-//    m2.testSensor();
     return 0;
 }
 

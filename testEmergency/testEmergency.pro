@@ -4,12 +4,11 @@ CONFIG -= app_bundle
 CONFIG += qt
 
 SOURCES += \
-        TestMonitoredSpace.cpp \
         main.cpp \
 
 
 
-unix:!macx: LIBS += -L$$PWD/../libEmergency/ -lemergency
+unix:!macx: LIBS += -L$$PWD/../libEmergency/lib/ -lEmergencyCenter
 
 INCLUDEPATH += $$PWD/../libEmergency
 DEPENDPATH += $$PWD/../libEmergency
