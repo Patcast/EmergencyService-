@@ -3,13 +3,15 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "component.h"
+#include <utility>
 #include "emergencyservice.h"
+#include "component.h"
+
 
 class Sensor : public Component
 {
-    using Component::Component;
-    public : Sensor(int Id, std::string_view des, std::string_view v);
+    public :
+    Sensor( int id, std::string_view des, std::string_view v);
     int castingErrorAsComponent();
     int addNewService(std::unique_ptr<EmergencyService> newChild);
     int removeServiceByIndex(unsigned int index);
@@ -21,13 +23,17 @@ class Sensor : public Component
     int activateSensor() override;
     int deActivateSensor() override;
     int getChildren(std::vector<std::shared_ptr<Component> > &sensors) const override;
-    Sensor & operator++(); //prefix
-    Sensor & operator--(); //prefix
-    Sensor operator<<(int); //postfix
+//    Sensor & operator++(); //prefix
+//    Sensor & operator--(); //prefix
+//    Sensor operator<<(int); //postfix
+
+    void setLocation(const std::string_view &newLocation) override;
+    const std::string & getLocation() const override;
 
 private:
     bool isActive{false};
     std::string vendor;
+    std::string location;
     std::vector<std::unique_ptr<EmergencyService>> services;
 };
 

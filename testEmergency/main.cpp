@@ -12,11 +12,12 @@ int generateId()
 }
 bool compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getId()<c2->getId();}
 bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getDescription()<c2->getDescription();}
+bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getLocation()<c2->getLocation();}
 
 int main()
 {
     auto s1 = std::make_shared<Sensor>(generateId(),"Heat Sensor","Lego Land");
-    auto s2 = std::make_shared<Sensor>(generateId(),"2Humidity Sensor","Lego Land");
+    auto s2 = std::make_shared<Sensor>(generateId(),"Humidity Sensor","Lego Land");
     auto s3 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
     auto s4 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
     auto s5 = std::make_shared<Sensor>(generateId(),"Light Sensor","Lego Land");
@@ -34,17 +35,13 @@ int main()
 
     std::vector<std::shared_ptr<Component>> sensors;
     m2->getChildren(sensors);
-    std::sort (sensors.begin(), sensors.end(), compareVendors);
+    std::sort (sensors.begin(), sensors.end(), compareLocations);
 
     std::cout<<"\n\n1 --------"<<std::endl;
     for(auto &c:sensors)
        c->printInfo();
     std::cout<<"\n\n -------- "<<sensors.size()<<" -------"<<std::endl;
 
-//    std::cout<<"\n\n2 --------"<<std::endl;
-//    m2->printInfo();
-//    std::cout<<"\n\n3 --------"<<std::endl;
-//    m1->printInfo();
 
 
     return 0;
