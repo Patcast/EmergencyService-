@@ -4,6 +4,7 @@
 #include <QVector>
 
 
+enum class sorter{ id, vendor, location};
 
 class Component
 {
@@ -16,6 +17,10 @@ public:
     int getId() const;
     std::string_view getDescription() const;
     std::vector<std::shared_ptr<Component>> getChildren();
+    static bool compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
+    static bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
+    static bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
+    static void sort(std::vector<std::shared_ptr<Component>> &components, sorter sortement);
 
 
     // Virtuals
@@ -27,7 +32,7 @@ public:
     virtual int testSensor() = 0;
     virtual int activateSensor() = 0;
     virtual int deActivateSensor() = 0;
-    virtual int getChildren(std::vector<std::shared_ptr<Component>> & sensors)  const = 0;
+    virtual int getChildren(std::vector<std::shared_ptr<Component>> &sensors)  const = 0;
 
 };
 

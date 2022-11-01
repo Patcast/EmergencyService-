@@ -42,3 +42,31 @@ std::vector<std::shared_ptr<Component>> Component::getChildren() {
     getChildren(sensors);
     return sensors;
 }
+
+bool Component::compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getId()<c2->getId();
+}
+
+bool Component::compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getDescription()<c2->getDescription();
+}
+
+bool Component::compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getLocation()<c2->getLocation();
+}
+
+void Component::sort(std::vector<std::shared_ptr<Component>> &components, sorter sortement) {
+    switch (sortement) {
+        case sorter::id:
+            std::sort(components.begin(), components.end(), compareIds);
+            break;
+        case sorter::vendor:
+            std::sort(components.begin(), components.end(), compareVendors);
+            break;
+        case sorter::location:
+            std::sort(components.begin(), components.end(), compareLocations);
+            break;
+    default:
+        break;
+    }
+}

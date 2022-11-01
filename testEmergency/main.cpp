@@ -4,15 +4,6 @@
 #include "sensor.h"
 #include "monitoredspace.h"
 
-int generateId()
-{
-    static int idValue{0}; // static duration via static keyword.  This initializer is only executed once.
-    ++idValue;
-    return idValue;
-}
-bool compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getId()<c2->getId();}
-bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getDescription()<c2->getDescription();}
-bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){return c1->getLocation()<c2->getLocation();}
 
 int main()
 {
@@ -34,7 +25,10 @@ int main()
     m2->addNewComponent(s3);
 
     std::vector<std::shared_ptr<Component>> sensors = m2->getChildren();
-    std::sort (sensors.begin(), sensors.end(), compareIds);
+
+    //std::sort(sensors.begin(), sensors.end(), Component::compareIds);
+    Component::sort(sensors, sorter::vendor);
+    //s1->sort_collection(sensors);
 
     std::cout<<"\n\n1 --------"<<std::endl;
     for(auto &c:sensors)
