@@ -20,10 +20,10 @@ class Sensor : public Component
     int testSensor() override;
     int activateSensor() override;
     int deActivateSensor() override;
-    int getChildren(std::vector<std::shared_ptr<Component> > &sensors) const override;
-    Sensor & operator++(); //prefix
-    Sensor & operator--(); //prefix
-    Sensor operator<<(int); //postfix
+    int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
+    Sensor& operator++(); //prefix
+    Sensor& operator--(); //prefix
+    Sensor& operator<<(Sensor &s); //prefix
 
 private:
     bool isActive{false};
