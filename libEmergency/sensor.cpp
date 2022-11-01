@@ -92,20 +92,10 @@ void Sensor::printInfo() const
         << std::endl;
 }
 
-Sensor& Sensor::operator++()
-{
-    this->activateSensor();
-    return *this;
-}
 
-Sensor& Sensor::operator--()
-{
-    this->deActivateSensor();
-    return *this;
-}
 
-Sensor& Sensor::operator<<(Sensor &s)
-{
-    s.printInfo();
-    return s;
-}
+//Sensor& Sensor::operator<<(Sensor &s)
+//{
+//    s.printInfo();
+//    return s;
+//}

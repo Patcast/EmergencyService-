@@ -80,31 +80,36 @@ int main()
 //**************TESTING**********************////
       //Part 1
       std::cout<<"\nTESTING 1******\n"<<std::endl;
-      sulphur_smoke_sensor->activateSensor();
-      oxygen_gas_sensor->activateSensor();
-      sulphur_smoke_sensor->testSensor();
-      oxygen_gas_sensor->testSensor();
-      motion_sensor_atmosphere->activateSensor();
-      motion_sensor_atmosphere->testSensor();
-      //Part 2
-      std::cout<<"\nTESTING 2******\n"<<std::endl;
-      planet_x->activateSensor();
-      planet_x->testSensor();
-      //Part 3
-      std::cout<<"\nTESTING 3******\n"<<std::endl;
-      planet_lv->deActivateSensor();
-      planet_lv->testSensor();
-      //Part 4
-      std::cout<<"\nTESTING 4******\n"<<std::endl;
-      planet_lv->activateSensor();
-      planet_lv->testSensor();
-      std::cout<<"\nTESTING 4 Moon Unit******\n"<<std::endl;
-      moonUnit->testSensor();
-      std::cout<<"\nTESTING 4 Dweezil Unit******\n"<<std::endl;
-      dweezil->testSensor();
-      //Part 5
-      std::cout<<"\nTESTING 5******\n"<<std::endl;
-      twix_galaxy->printSensorsSorted(sorter::location);
+      ++(*oxygen_gas_sensor);
+      ++(*sulphur_smoke_sensor);
+      <<(*sulphur_smoke_sensor);
+
+
+
+
+//      sulphur_smoke_sensor->testSensor();
+//      oxygen_gas_sensor->testSensor();
+//      motion_sensor_atmosphere->activateSensor();
+//      motion_sensor_atmosphere->testSensor();
+//      //Part 2
+//      std::cout<<"\nTESTING 2******\n"<<std::endl;
+//      planet_x->activateSensor();
+//      planet_x->testSensor();
+//      //Part 3
+//      std::cout<<"\nTESTING 3******\n"<<std::endl;
+//      planet_lv->deActivateSensor();
+//      planet_lv->testSensor();
+//      //Part 4
+//      std::cout<<"\nTESTING 4******\n"<<std::endl;
+//      planet_lv->activateSensor();
+//      planet_lv->testSensor();
+//      std::cout<<"\nTESTING 4 Moon Unit******\n"<<std::endl;
+//      moonUnit->testSensor();
+//      std::cout<<"\nTESTING 4 Dweezil Unit******\n"<<std::endl;
+//      dweezil->testSensor();
+//      //Part 5
+//      std::cout<<"\nTESTING 5******\n"<<std::endl;
+//      twix_galaxy->printSensorsSorted(sorter::location);
 
 
     return 0;

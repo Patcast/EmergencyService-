@@ -24,9 +24,8 @@ class Sensor : public Component
     int deActivateSensor() override;
     using Component::getChildren;
     int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
-    Sensor& operator++(); //prefix
-    Sensor& operator--(); //prefix
-    Sensor& operator<<(Sensor &s); //prefix
+
+    //Sensor& operator<<(Sensor &s); //prefix
     void setLocation(const std::string_view &newLocation) override;
     const std::string & getLocation() const override;
 

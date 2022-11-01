@@ -72,3 +72,21 @@ void Component::sort(std::vector<std::shared_ptr<Component>> &components, sorter
         break;
     }
 }
+
+Component& Component::operator++()
+{
+    this->activateSensor();
+    return *this;
+}
+Component& Component::operator--()
+{
+    this->deActivateSensor();
+    return *this;
+}
+Component& Component::operator<<(Component &s)
+{
+    s.printInfo();
+    return s;
+}
+
+

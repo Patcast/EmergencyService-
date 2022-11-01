@@ -22,8 +22,9 @@ public:
     static bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
     static bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
     static void sort(std::vector<std::shared_ptr<Component>> &components, sorter sortement);
-
-
+    Component& operator++(); //prefix
+    Component& operator--(); //prefix
+    Component& operator<<(Component &s); //prefix
     // Virtuals
     virtual void printInfo() const;
     virtual void setLocation(const std::string_view &newLocation);
@@ -31,7 +32,7 @@ public:
     virtual int addNewComponent(std::shared_ptr<Component> newChild) = 0;
     virtual int removeComponent(std::shared_ptr<Component> unWantedChild) = 0;
     virtual int testSensor() = 0;
-    virtual int activateSensor() = 0;
+    virtual int activateSensor()=0;
     virtual int deActivateSensor() = 0;
     virtual int getChildren(std::vector<std::shared_ptr<Component>> &sensors)  const = 0;
 
