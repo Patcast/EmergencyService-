@@ -15,6 +15,7 @@ public:
     Component(std::string_view description);
     int getId() const;
     std::string_view getDescription() const;
+    std::vector<std::shared_ptr<Component>> getChildren();
 
 
     // Virtuals

@@ -36,3 +36,9 @@ const std::string &Component::getLocation() const
 {
     return description;
 }
+
+std::vector<std::shared_ptr<Component>> Component::getChildren() {
+    std::vector<std::shared_ptr<Component>> sensors;
+    getChildren(sensors);
+    return sensors;
+}

@@ -33,9 +33,8 @@ int main()
     m1->addNewComponent(s2);
     m2->addNewComponent(s3);
 
-    std::vector<std::shared_ptr<Component>> sensors;
-    m2->getChildren(sensors);
-    std::sort (sensors.begin(), sensors.end(), compareLocations);
+    std::vector<std::shared_ptr<Component>> sensors = m2->getChildren();
+    std::sort (sensors.begin(), sensors.end(), compareIds);
 
     std::cout<<"\n\n1 --------"<<std::endl;
     for(auto &c:sensors)

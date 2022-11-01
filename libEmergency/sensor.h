@@ -22,6 +22,7 @@ class Sensor : public Component
     int testSensor() override;
     int activateSensor() override;
     int deActivateSensor() override;
+    using Component::getChildren;
     int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
     Sensor& operator++(); //prefix
     Sensor& operator--(); //prefix

@@ -16,6 +16,7 @@ public:
     int addNewComponent(std::shared_ptr<Component> newChild) override;
     int removeComponent(std::shared_ptr<Component> unWantedChild) override;
     void printInfo() const override;
+    using Component::getChildren;
     int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
 };
 
