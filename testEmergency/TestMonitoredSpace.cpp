@@ -1,13 +1,14 @@
 #include "monitoredspace.h"
 #include "component.h"
-//#include "sensor.h"
+#include "sensor.h"
 #include <QCoreApplication>
 #include <iostream>
+#include <QMetaObject>
 
 
 int main(int argc, char *argv[])
 {
-
+/*
     MonitoredSpace MonitoredSpace1(1 ,"test");
     std::cout << "description " << MonitoredSpace1.getDescription() << std::endl;
     std::cout << "id " << MonitoredSpace1.getId() << std::endl;
@@ -28,5 +29,25 @@ int main(int argc, char *argv[])
     for(int i = 0; i< size;i++){
                 std::cout << "child "<< i << " " << children[i]->getId() << std::endl;
             }
+*/
+/*
+    MonitoredSpace MonitoredSpace1(1 ,"test");
+    MonitoredSpace MonitoredSpace2(2 ,"test5");
+    Sensor Sensor1(3,"smoke");
+    Sensor Sensor2(4,"Gas");
+    Sensor Sensor3(5,"Motion");
+    MonitoredSpace1.addNewComponent(&MonitoredSpace2);
+    //std::cout << "children " <<MonitoredSpace1.testSensor()<< std::endl;
+    MonitoredSpace1.addNewComponent(&Sensor1);
+
+    MonitoredSpace2.addNewComponent(&Sensor2);
+    MonitoredSpace2.addNewComponent(&Sensor3);
+
+    MonitoredSpace1.activateSensor();       //3,4 en 5
+//    MonitoredSpace2.activateSensor();     //4 en 5
+//    MonitoredSpace2.deactivateSensor();
+//    std::cout << "testSensor3 " << Sensor3.testSensor() << std::endl;
+//    std::cout << "MonitoredSpace1 " << MonitoredSpace1.testSensor() << std::endl;
+*/
 }
 

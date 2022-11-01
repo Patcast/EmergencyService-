@@ -12,7 +12,7 @@
 *.Debug
 *.Release
 
-
+build-testEmergency-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/
 
 build-EmergencyCenter-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/
 *.pdf
