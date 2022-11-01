@@ -18,10 +18,8 @@ SOURCES += \
     emergencycenter.cpp \
     emergencyservice.cpp \
     gas.cpp \
-    main.cpp \
     monitoredspace.cpp \
     motion.cpp \
-    observer.cpp \
     sensor.cpp
 
 HEADERS += \
@@ -36,11 +34,10 @@ HEADERS += \
     gas.h \
     monitoredspace.h \
     motion.h \
-    observer.h \
     sensor.h
 
 # Default rules for deployment.
 unix {
-    target.path = /usr/lib
+    target.path =$PWD/../lib
 }
 !isEmpty(target.path): INSTALLS += target

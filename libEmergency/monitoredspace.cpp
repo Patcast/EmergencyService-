@@ -1,6 +1,6 @@
 #include "monitoredspace.h"
 #include <iostream>
-#include <QObject>
+
 
 
 MonitoredSpace::MonitoredSpace(int Id,std::string_view des)
@@ -27,11 +27,20 @@ int MonitoredSpace::removeComponent(std::shared_ptr<Component> unWantedChild) {
     return 1;
 }
 
-const std::shared_ptr<Component> MonitoredSpace::getChildren() const
+int MonitoredSpace::getChildren(std::vector<std::shared_ptr<Component>> &sensors) const
 {
-    std::vector<std::shared_ptr<Component>> sensors;
+    // returns length of vector as unsigned int
+      unsigned int vecSize = children.size();
+      // run for loop from 0 to vecSize
+      for(unsigned int i = 0; i < vecSize; i++)
+      {
+          //std::cout<<"MonitoredSpace with ID"<<getId()<<std::endl;
 
-    return nullptr;
+          if(children[i]->getChildren(sensors)){
+              sensors.push_back(children[i]);
+          }
+      }
+    return 0;
 }
 
 int MonitoredSpace::activateSensor(){
@@ -40,7 +49,7 @@ int MonitoredSpace::activateSensor(){
     return 0;
 }
 
-int MonitoredSpace::deactivateSensor(){
+int MonitoredSpace::deActivateSensor(){
     for (auto &c : children)
         c->deActivateSensor();
     return 0;
@@ -68,14 +77,4 @@ int MonitoredSpace::getSizeOfChildren()
     return children.size();
 }
 
-/*
-component* MonitoredSpace:: getComponentById(double id){
-    int size = children.size();
-    for(int i = 0; i< size;i++){
-        if( children[i]->getId() == id){
-            return children[i];
-        }
-    }
-    return NULL;
-}
-*/
+

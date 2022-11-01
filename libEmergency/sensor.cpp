@@ -63,10 +63,12 @@ int Sensor::testSensor()
     return 0;
 }
 
-const std::shared_ptr<Component> Sensor::getChildren() const
+int Sensor::getChildren(std::vector<std::shared_ptr<Component> > &sensors) const
 {
-    return nullptr;
+   return 1;
 }
+
+
 
 void Sensor::printInfo() const
 {
