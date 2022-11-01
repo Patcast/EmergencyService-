@@ -12,5 +12,5 @@ void EmergencyService:: setMessage(std::string m) {
 }
 
 void EmergencyService:: execute() {
-    std::cout << this->message;
+    std::cout << this->message<<std::endl;
 }
