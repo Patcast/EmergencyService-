@@ -8,7 +8,7 @@ private:
     std::vector<std::shared_ptr<Component>> children;
 
 public:
-    MonitoredSpace( int id,std::string_view description);
+    MonitoredSpace(std::string_view description);
     int getSizeOfChildren();
     int activateSensor() override;
     int deActivateSensor() override;
@@ -16,6 +16,7 @@ public:
     int addNewComponent(std::shared_ptr<Component> newChild) override;
     int removeComponent(std::shared_ptr<Component> unWantedChild) override;
     void printInfo() const override;
+    using Component::getChildren;
     int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
 };
 

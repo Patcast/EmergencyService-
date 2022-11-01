@@ -7,7 +7,7 @@ class Gas : public Sensor
 {
 public:
     using Sensor::Sensor;
-    Gas(int id, std::string_view des, std::string_view v, int gasThreshold);
+    Gas(std::string_view des, std::string_view v, int gasThreshold);
     int gasThreshold;
 };
 

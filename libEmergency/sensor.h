@@ -11,7 +11,7 @@
 class Sensor : public Component
 {
     public :
-    Sensor( int id, std::string_view des, std::string_view v);
+    Sensor(std::string_view des, std::string_view v);
     int castingErrorAsComponent();
     int addNewService(std::unique_ptr<EmergencyService> newChild);
     int removeServiceByIndex(unsigned int index);
@@ -22,6 +22,7 @@ class Sensor : public Component
     int testSensor() override;
     int activateSensor() override;
     int deActivateSensor() override;
+    using Component::getChildren;
     int getChildren(std::vector<std::shared_ptr<Component>> &sensors) const override;
     Sensor& operator++(); //prefix
     Sensor& operator--(); //prefix

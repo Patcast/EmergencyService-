@@ -2,7 +2,9 @@
 #include <string>
 #include <iostream>
 
-Component::Component(int id,std::string_view des) : id{id}, description{des}
+int const_id=0;
+
+Component::Component(std::string_view des) : id{++const_id}, description{des}
 {
     std::cout << "Calling Component constructor" << std::endl;
 }
@@ -33,4 +35,38 @@ void Component::setLocation(const std::string_view &newLocation)
 const std::string &Component::getLocation() const
 {
     return description;
+}
+
+std::vector<std::shared_ptr<Component>> Component::getChildren() {
+    std::vector<std::shared_ptr<Component>> sensors;
+    getChildren(sensors);
+    return sensors;
+}
+
+bool Component::compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getId()<c2->getId();
+}
+
+bool Component::compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getDescription()<c2->getDescription();
+}
+
+bool Component::compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
+    return c1->getLocation()<c2->getLocation();
+}
+
+void Component::sort(std::vector<std::shared_ptr<Component>> &components, sorter sortement) {
+    switch (sortement) {
+        case sorter::id:
+            std::sort(components.begin(), components.end(), compareIds);
+            break;
+        case sorter::vendor:
+            std::sort(components.begin(), components.end(), compareVendors);
+            break;
+        case sorter::location:
+            std::sort(components.begin(), components.end(), compareLocations);
+            break;
+    default:
+        break;
+    }
 }

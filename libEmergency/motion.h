@@ -7,7 +7,7 @@ class Motion : public Sensor
 {
 public:
     using Sensor::Sensor;
-    Motion(int id, std::string_view des, std::string_view v, int motionThreshold, int range, int startTime = 0, int endTime = 24);
+    Motion(std::string_view des, std::string_view v, int motionThreshold, int range, int startTime = 0, int endTime = 24);
     int motionThreshold;
     int range;
     int startTime;

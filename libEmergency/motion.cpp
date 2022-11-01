@@ -1,6 +1,6 @@
 #include "motion.h"
 
-Motion::Motion(int id, std::string_view description, std::string_view vendor, int motionThreshold, int range, int startTime, int endTime) : Sensor(id, description, vendor) {
+Motion::Motion(std::string_view description, std::string_view vendor, int motionThreshold, int range, int startTime, int endTime) : Sensor(description, vendor) {
     this->motionThreshold = motionThreshold;
     this->range = range;
     this->startTime = startTime;

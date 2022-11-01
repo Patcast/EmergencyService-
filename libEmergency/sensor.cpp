@@ -2,7 +2,7 @@
 #include <iostream>
 #include "emergencyservice.h"
 
-Sensor::Sensor(int id, std::string_view des, std::string_view v) : Component{id,des}, vendor{v}
+Sensor::Sensor(std::string_view des, std::string_view v) : Component{des}, vendor{v}
 {
     std::cout << "Calling Sensor constructor" << std::endl;
 }
