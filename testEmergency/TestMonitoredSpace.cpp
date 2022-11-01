@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
                 std::cout << "child "<< i << " " << children[i]->getId() << std::endl;
             }
 */
-
+/*
     MonitoredSpace MonitoredSpace1(1 ,"test");
     MonitoredSpace MonitoredSpace2(2 ,"test5");
     Sensor Sensor1(3,"smoke");
@@ -48,6 +48,6 @@ int main(int argc, char *argv[])
 //    MonitoredSpace2.deactivateSensor();
 //    std::cout << "testSensor3 " << Sensor3.testSensor() << std::endl;
 //    std::cout << "MonitoredSpace1 " << MonitoredSpace1.testSensor() << std::endl;
-
+*/
 }
 

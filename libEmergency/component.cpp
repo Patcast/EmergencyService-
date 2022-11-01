@@ -7,12 +7,12 @@ Component::Component(int Id, std::string_view des) : id{Id}, description{des}
     std::cout << "Calling Component constructor" << std::endl;
 }
 
-int Component:: getId(){
+int Component:: getId() const{
 
-    return Id;
+    return id;
 }
 
-std::string_view Component:: getDescription(){
+std::string_view Component:: getDescription() const{
     return description;
 }
 

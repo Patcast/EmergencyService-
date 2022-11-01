@@ -13,8 +13,8 @@ private:
 
 public:
     Component(int id, std::string_view description);
-    int getId();
-    std::string_view getDescription();
+    int getId() const;
+    std::string_view getDescription() const;
     void printInfo() const;
 
     // Virtuals
