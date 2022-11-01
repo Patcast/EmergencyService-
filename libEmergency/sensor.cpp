@@ -77,22 +77,3 @@ void Sensor::printInfo() const
         << "\nstate:\t\t" << isActive
         << std::endl;
 }
-
-Sensor &Sensor::operator++()
-{
-    this->activateSensor();
-    return *this;
-}
-
-Sensor &Sensor::operator--()
-{
-    this->deActivateSensor();
-    return *this;
-}
-
-Sensor Sensor::operator<<(int)
-{
-    Sensor temp{*this};
-    temp.printInfo();
-    return temp;
-}
