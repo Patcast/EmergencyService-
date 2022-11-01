@@ -20,6 +20,9 @@ class Sensor : public Component
     std::shared_ptr<Component> const getChildren() const override;
     int addNewComponent(std::shared_ptr<Component> newChild) override;
     int removeComponent(std::shared_ptr<Component> unWantedChild) override;
+    Sensor & operator++(); //prefix
+    Sensor & operator--(); //prefix
+    Sensor operator<<(int); //postfix
 
 private:
     bool isActive{false};
