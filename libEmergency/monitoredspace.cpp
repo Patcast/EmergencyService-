@@ -3,14 +3,15 @@
 
 
 
-MonitoredSpace::MonitoredSpace(int Id,std::string_view des)
-    :Component{Id,des}
+MonitoredSpace::MonitoredSpace(int id, std::string_view des)
+    :Component{id, des}
  {
      std::cout << "Calling MonitorSpace constructor" << std::endl;
  }
 
  int MonitoredSpace::addNewComponent(std::shared_ptr<Component> newChild)
  {
+     newChild->setLocation(getDescription());
      children.push_back(std::move(newChild));
      return 0;
  }

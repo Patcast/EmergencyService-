@@ -2,7 +2,7 @@
 #include <iostream>
 #include "emergencyservice.h"
 
-Sensor::Sensor(int Id, std::string_view des, std::string_view v) : Component{Id, des}, vendor{v}
+Sensor::Sensor(int id, std::string_view des, std::string_view v) : Component{id,des}, vendor{v}
 {
     std::cout << "Calling Sensor constructor" << std::endl;
 }
@@ -65,7 +65,17 @@ int Sensor::testSensor()
 
 int Sensor::getChildren(std::vector<std::shared_ptr<Component> > &sensors) const
 {
-   return 1;
+    return 1;
+}
+
+void Sensor::setLocation(const std::string_view &newLocation)
+{
+    location = newLocation;
+}
+
+const std::string &Sensor::getLocation() const
+{
+    return location;
 }
 
 
@@ -76,6 +86,8 @@ void Sensor::printInfo() const
     std::cout
         << "vendor:\t\t"
         << vendor
+        << "\nLocation:\t\t"
+        << location
         << "\nstate:\t\t" << isActive
         << std::endl;
 }

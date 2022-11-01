@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-Component::Component(int Id, std::string_view des) : id{Id}, description{des}
+Component::Component(int id,std::string_view des) : id{id}, description{des}
 {
     std::cout << "Calling Component constructor" << std::endl;
 }
@@ -23,4 +23,14 @@ void Component::printInfo() const
         << getDescription()
         << "\nid:\t\t" << getId()
         << std::endl;
+}
+
+void Component::setLocation(const std::string_view &newLocation)
+{
+    return;
+}
+
+const std::string &Component::getLocation() const
+{
+    return description;
 }
