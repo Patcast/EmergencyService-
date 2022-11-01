@@ -23,7 +23,7 @@ class Sensor : public Component
 
 private:
     bool isActive{false};
-    std::string_view vendor;
+    std::string vendor;
     std::vector<std::unique_ptr<EmergencyService>> services;
     Sensor & operator++(); //prefix
     Sensor & operator--(); //prefix
