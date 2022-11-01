@@ -104,15 +104,7 @@ int main()
       dweezil->testSensor();
       //Part 5
       std::cout<<"\nTESTING 5******\n"<<std::endl;
-
-
-//      std::vector<std::shared_ptr<Component>> sensorsSorted;
-//      twix_galaxy->getChildren(sensors);
-//      std::sort (sensors.begin(), sensors.end(), compareLocations);
-//      std::cout<<"\n\n --------"<<std::endl;
-//      for(auto &c:sensors)
-//         c->printInfo();
-//      std::cout<<"\n\n -------- "<<"Number of sensors: "<<sensors.size()<<" -------"<<std::endl;
+      twix_galaxy->printSensorsSorted(sorter::location);
 
 
     return 0;

@@ -16,7 +16,8 @@ public:
     Component(std::string_view description);
     int getId() const;
     std::string_view getDescription() const;
-    std::vector<std::shared_ptr<Component>> getChildren();
+    //std::vector<std::shared_ptr<Component>> getChildren(sorter sortement);
+    void printSensorsSorted(sorter sortement);
     static bool compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
     static bool compareVendors(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);
     static bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2);

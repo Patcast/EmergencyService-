@@ -37,10 +37,12 @@ const std::string &Component::getLocation() const
     return description;
 }
 
-std::vector<std::shared_ptr<Component>> Component::getChildren() {
+void Component::printSensorsSorted(sorter sortement) {
     std::vector<std::shared_ptr<Component>> sensors;
     getChildren(sensors);
-    return sensors;
+    sort(sensors,sortement);
+    for(auto &c:sensors)        c->printInfo();
+    std::cout<<"\n\n -------- "<<"Number of sensors: "<<sensors.size()<<" -------"<<std::endl;
 }
 
 bool Component::compareIds(std::shared_ptr<Component> c1, std::shared_ptr<Component> c2){
