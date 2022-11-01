@@ -3,8 +3,8 @@
 
 
 
-MonitoredSpace::MonitoredSpace(int id, std::string_view des)
-    :Component{id, des}
+MonitoredSpace::MonitoredSpace(std::string_view des)
+    :Component{des}
  {
      std::cout << "Calling MonitorSpace constructor" << std::endl;
  }

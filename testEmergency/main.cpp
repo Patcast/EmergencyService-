@@ -16,14 +16,14 @@ bool compareLocations(std::shared_ptr<Component> c1, std::shared_ptr<Component> 
 
 int main()
 {
-    auto s1 = std::make_shared<Sensor>(generateId(),"Heat Sensor","Lego Land");
-    auto s2 = std::make_shared<Sensor>(generateId(),"Humidity Sensor","Lego Land");
-    auto s3 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
-    auto s4 = std::make_shared<Sensor>(generateId(),"Motion Sensor","Robocop");
-    auto s5 = std::make_shared<Sensor>(generateId(),"Light Sensor","Lego Land");
-    auto m1 = std::make_shared<MonitoredSpace>(generateId(),"Class room");
-    auto m2 = std::make_shared<MonitoredSpace>(generateId(),"Building");
-    auto m3 = std::make_shared<MonitoredSpace>(generateId(),"Street");
+    auto s1 = std::make_shared<Sensor>("Heat Sensor","Lego Land");
+    auto s2 = std::make_shared<Sensor>("Humidity Sensor","Lego Land");
+    auto s3 = std::make_shared<Sensor>("Motion Sensor","Robocop");
+    auto s4 = std::make_shared<Sensor>("Motion Sensor","Robocop");
+    auto s5 = std::make_shared<Sensor>("Light Sensor","Lego Land");
+    auto m1 = std::make_shared<MonitoredSpace>("Class room");
+    auto m2 = std::make_shared<MonitoredSpace>("Building");
+    auto m3 = std::make_shared<MonitoredSpace>("Street");
 
     m1->addNewComponent(s1);
     m2->addNewComponent(m1);

@@ -2,7 +2,9 @@
 #include <string>
 #include <iostream>
 
-Component::Component(int id,std::string_view des) : id{id}, description{des}
+int const_id=0;
+
+Component::Component(std::string_view des) : id{++const_id}, description{des}
 {
     std::cout << "Calling Component constructor" << std::endl;
 }
